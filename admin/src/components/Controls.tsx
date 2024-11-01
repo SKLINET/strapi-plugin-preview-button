@@ -16,8 +16,6 @@ const Controls = () => {
 
   const settings = useSettings();
 
-  console.log(settings);
-
   // Do not show when settings are loading
   if (!settings || !Array.isArray(settings.contentTypes)) return <></>;
 
