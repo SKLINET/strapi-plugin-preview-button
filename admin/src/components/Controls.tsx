@@ -7,11 +7,17 @@ import { useSettings } from '../hooks/useSettings';
 import { PreviewButtonGroup } from './PreviewButtonGroup';
 
 const Controls = () => {
+  const params = Object.fromEntries(new URLSearchParams(location.search));
+  const locale = params['plugins[i18n][locale]'] || 'en';
+
   const context = useContentManagerContext();
   const entity = useDocument({
     documentId: context.id,
     model: context.model,
     collectionType: context.collectionType,
+    params: {
+      locale: locale,
+    },
   });
 
   const settings = useSettings();
